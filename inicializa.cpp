@@ -1,7 +1,7 @@
 #include "inicializa.hpp"
 
 
-void inicializacion (const int N, double *x, double *v, const float ancho, float rad1, float h,double *dissipation, int *recorded, int *neigh)
+void inicializacion (const int N, double *x, double *v, const float ancho, float rad1, float h,double *dissipation, int *recorded, int *neigh, double *x_N)
 {
   int k,j,rep, num1, num2;
   float solapa;
@@ -13,13 +13,17 @@ void inicializacion (const int N, double *x, double *v, const float ancho, float
     num1   = rand()%(1000);
     num2   = rand()%(1000);
     *(x+i*3)   = (ancho-2)*num1/1000+2*rad1;           //asigna un valor aleatorio a x e y esta variable esta entre 2 y ancho-2
-    *(x+i*3+1) = (5*N*num2/(ancho*1000) + 2*rad1)+h;
+    *(x+i*3+1) = (2*N*num2/(ancho*1000) + 2*rad1)+h;
     *(x+i*3+2)= 0;                                     //// esta variable esta entre h+2*0.5 radios y 10*N/L+h+0.5 radios
     *(v+i*3)= 0;
     *(v+i*3+1)=0;
     *(v+i*3+2)=0;
     *(dissipation+i)=0;
     
+    *(x_N+i*3)  =0;   
+    *(x_N+i*3+1)=0;
+    *(x_N+i*3+2)=0;
+
     for (int j=0; j<30; j++){
       *(neigh+i*30+j)=0;
     }
@@ -42,7 +46,7 @@ void inicializacion (const int N, double *x, double *v, const float ancho, float
 	      num1   = rand()%(1000);                //asigna nuevos valores a x e y si las anteriores solapaban con una prtícula
 	      num2   = rand()%(1000);
 	      *(x+i*3)   = (ancho-2)*num1/1000+2*rad1;  
-	      *(x+i*3+1) = 5*N*num2/(ancho*1000) + 2*rad1;	//esta variable esta entre   
+	      *(x+i*3+1) = 2*N*num2/(ancho*1000) + 2*rad1;	//esta variable esta entre   
 	      k=0;
 	    }
 	  }
