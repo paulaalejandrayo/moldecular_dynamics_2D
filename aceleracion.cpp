@@ -89,8 +89,8 @@ void acs (const int N, const int rad_paredes, const float rad1, const float g, d
       if (seda>0)
       {
 
-        xdif_0[0]=(*(w00)-*(x_0+i*3));   //ESTA ES LA DIFERENCIA ENTRE LOS VALORES DE LAS COMPONENTES X
-        modxdif_0=abs(xdif_0[1]);  //ESTA ES LA DISTANCIA ENTRE LA PARTÍCULA i Y LA j at time - 1
+        xdif_0[0]=(*(w00+1)-*(x_0+i*3));   //ESTA ES LA DIFERENCIA ENTRE LOS VALORES DE LAS COMPONENTES X
+        modxdif_0=abs(xdif_0[0]);  //ESTA ES LA DISTANCIA ENTRE LA PARTÍCULA i Y LA j at time - 1
 
         seda_old=rad1-modxdif_0; // this is the overlap between i and j at time t-1
         Dn=  abs(seda-seda_old); 
@@ -130,8 +130,8 @@ void acs (const int N, const int rad_paredes, const float rad1, const float g, d
       if (seda>0)
       {
 
-        xdif_0[0]=(*(w00)-*(x_0+i*3));   //ESTA ES LA DIFERENCIA ENTRE LOS VALORES DE LAS COMPONENTES X
-        modxdif_0=abs(xdif_0[1]);  //ESTA ES LA DISTANCIA ENTRE LA PARTÍCULA i Y LA j at time - 1
+        xdif_0[0]=(*(w00+2)-*(x_0+i*3));   //ESTA ES LA DIFERENCIA ENTRE LOS VALORES DE LAS COMPONENTES X
+        modxdif_0=abs(xdif_0[0]);  //ESTA ES LA DISTANCIA ENTRE LA PARTÍCULA i Y LA j at time - 1
 
         seda_old=rad1-modxdif_0; // this is the overlap between i and j at time t-1
         Dn=  abs(seda-seda_old); 
